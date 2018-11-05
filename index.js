@@ -10,7 +10,7 @@ app.get('/', function(request, response) {
 
 app.post('/', function(req, res, next) {
   res.json({
-    "fulfillmentText": req
+    "fulfillmentText": "転スラ"
   });
 });
 
