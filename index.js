@@ -9,10 +9,11 @@ app.get('/', function(request, response) {
 });
 
 app.post('/', function(req, res, next) {
+  var json = JSON.parse(req);
+  var parameters = json.parameters;
   res.json({
-    "fulfillmentText": "転スラ"
+    "fulfillmentText": parameters.drone_command
   });
-  console.log(res);
 });
 
 app.listen(app.get('port'), function() {
