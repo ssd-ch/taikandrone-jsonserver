@@ -10,7 +10,7 @@ app.get('/', function(request, response) {
 
 app.post('/', function(req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  var parameters = req.queryResult.parameters.drone_command;
+  var parameters = req.body.queryResult.parameters.drone_command;
   console.log(parameters);
   // console.log("req = ", req);
   // console.log("res = ", res);
