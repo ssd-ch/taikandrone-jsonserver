@@ -10,7 +10,7 @@ app.get('/', function(request, response) {
 
 app.post('/', function(req, res, next) {
   res.json({
-    "fulfillmentText": "転スラが見つかりました"
+    "fulfillmentText": req
   });
 });
 
