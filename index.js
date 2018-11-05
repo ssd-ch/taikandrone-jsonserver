@@ -9,7 +9,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/', function(req, res, next) {
-  var parameters = req.parameters.drone_command;
+  var parameters = req.queryResult.parameters.drone_command;
   console.log(parameters);
   res.json({
     "fulfillmentText": "転スラ"
