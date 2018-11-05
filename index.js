@@ -9,10 +9,8 @@ app.get('/', function(request, response) {
 });
 
 app.post('/', function(req, res, next) {
-  var json = JSON.parse(req);
-  var parameters = json.parameters;
   res.json({
-    "fulfillmentText": parameters.drone_command
+    "fulfillmentText": "転スラ"
   });
 });
 
