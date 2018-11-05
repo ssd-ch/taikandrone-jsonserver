@@ -9,7 +9,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/', function(req, res, next) {
-  var parameters = req.body.result.paramaters;
+  var parameters = req.body.result.parameters;
   console.log(parameters);
   res.json({
     "fulfillmentText": "転スラ"
