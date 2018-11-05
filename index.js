@@ -12,7 +12,7 @@ app.post('/', function(req, res, next) {
   res.json({
     "fulfillmentText": "転スラ"
   });
-  console.log(req);
+  console.log(res);
 });
 
 app.listen(app.get('port'), function() {
