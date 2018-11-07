@@ -18,8 +18,8 @@ app.get('/', function(request, response) {
 
 app.post('/', function(req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  // var parameters = req.body.queryResult.parameters.drone_command;
-  var parameters = req.body; //local version
+  var parameters = req.body.queryResult.parameters.drone_command;
+  // var parameters = req.body; //local version
   console.log(parameters);
 
   bclient.publish(
