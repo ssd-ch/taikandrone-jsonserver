@@ -9,17 +9,17 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-var bclient = new bbt.Connector({apiKey: 'OFNz5cAYo7N8LJadi8B9mUM2',
-                                secretKey: 'jrtvfzHPIGuGa56U6R3GAz8WZwyRnFyO'});
+var bclient = new bbt.Connector({apiKey: 'xnV8s54BIHrE2T2h7twsDDGJ',
+                                secretKey: 'cIcvfPd9j2clveza0DGaC2ccWqAqLuXl'});
 
 app.get('/', function(request, response) {
-  response.send('Getではうまくサーバーが起動してます! 多分Postもできます');
+  response.send('音声でドローン操作して！');
 });
 
 app.post('/', function(req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  var parameters = req.body.queryResult.parameters.drone_command;
-  // var parameters = req.body; //local version
+  var parameters = req.body.queryResult.parameters;
+  var drone_command = parameters.drone_command;
   console.log(parameters);
 
   bclient.publish(
@@ -28,8 +28,41 @@ app.post('/', function(req, res, next) {
     // Do something here
   });
 
+  if (drone_command == 'take_off') {
+    var response = 'ドローンが離陸します';
+  }
+  if (drone_command == 'land') {
+    var response = 'ドローンが着陸します';
+  }
+  if (drone_command == 'up') {
+    var response = 'ドローンが上昇します';
+  }
+  if (drone_command == 'down') {
+    var response = 'ドローンが下降します';
+  }
+  if (drone_command == 'forward') {
+    var response = 'ドローンが前進します';
+  }
+  if (drone_command == 'backward') {
+    var response = 'ドローンが後退します';
+  }
+  if (drone_command == 'right') {
+    var response = 'ドローンが右に移動します';
+  }
+  if (drone_command == 'left') {
+    var response = 'ドローンが左に移動します';
+  }
+  if (drone_command == 'hovering') {
+    var response = 'ドローンがホバリングします';
+  }
+  if (drone_command == 'clockwise') {
+    var response = 'ドローンが右回転します';
+  }
+  if (drone_command == 'counterclockwise') {
+    var response = 'ドローンが左回転します';
+  }
   res.json({
-    'fulfillmentText': '転スラ'
+    'fulfillmentText': response
   });
 });
 
