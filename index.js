@@ -9,8 +9,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-var bclient = new bbt.Connector({apiKey: 'xnV8s54BIHrE2T2h7twsDDGJ',
-                                secretKey: 'cIcvfPd9j2clveza0DGaC2ccWqAqLuXl'});
+var bclient = new bbt.Connector({apiKey: '',
+                                secretKey: ''});
 
 app.get('/', function(request, response) {
   response.send('音声でドローン操作して！');
